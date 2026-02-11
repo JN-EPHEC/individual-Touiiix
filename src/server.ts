@@ -25,4 +25,12 @@ const etudiants = [
 
 app.get('/api/data', (req: Request, res: Response) => {
     res.json(etudiants)
-})
+});
+
+app.get('/api/hello/:name', (req: Request, res: Response) => {
+    const name = req.params.name
+    res.json({
+        message: `Bonjour ${name}`,
+        timestamp: new Date(),
+    });
+});
