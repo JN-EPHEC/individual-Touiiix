@@ -1,5 +1,5 @@
 import express, {Request, Response} from 'express';
-
+import userRouter from "./routes/userRoutes.js"
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
@@ -9,6 +9,8 @@ console.log(message);
 
 const app = express();
 const port = 3000;
+
+app.use('/api/users', userRouter);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
