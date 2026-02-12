@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
 import userRouter from "./routes/userRoutes.js";
 import sequelize from "./config/database.js";
-import "./models/user.js";
+import "./models/User";
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
