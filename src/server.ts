@@ -1,7 +1,7 @@
 import express, {Request, Response} from 'express';
-import userRouter from "./routes/userRoutes.js"
-import sequelize from "./config/database.js"
-
+import userRouter from "./routes/userRoutes.js";
+import sequelize from "./config/database.js";
+import "./models/user.js";
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
@@ -13,6 +13,13 @@ async function testDB() {
     try {
         await sequelize.authenticate();
         console.log('Connection à la DB reussie.');
+
+        await sequelize.sync({force : true});
+        console.log('modèles synchronisés avec la DB')
+
+        app.listen(port, () => {
+        console.log(`Serveur lancé sur http://localhost:${port}`);
+        });
 }   catch (error) {
         console.error('Impossible de se connecter à la DB:', error);
     }
@@ -27,9 +34,6 @@ app.use('/api/users', userRouter);
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
 })
-app.listen(port, () => {
-    console.log(`Serveur lancé sur http://localhost:${port}`);
-});
 
 const etudiants = [
     { id: 1, nom: "Dupont", prenom: "Jean" },
