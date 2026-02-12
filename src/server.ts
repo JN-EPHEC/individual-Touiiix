@@ -29,7 +29,7 @@ testDB();
 const app = express();
 const port = 3000;
 
-app.use('/api/users', userRouter);
+app.use(express.json());    
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
