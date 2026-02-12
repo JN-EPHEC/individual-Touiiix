@@ -1,11 +1,23 @@
 import express, {Request, Response} from 'express';
 import userRouter from "./routes/userRoutes.js"
+import sequelize from "./config/database.js"
+
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
 
 let message = greet("Pepito");
 console.log(message);
+
+async function testDB() {
+    try {
+        await sequelize.authenticate();
+        console.log('Connection à la DB reussie.');
+}   catch (error) {
+        console.error('Impossible de se connecter à la DB:', error);
+    }
+};
+testDB();
 
 const app = express();
 const port = 3000;

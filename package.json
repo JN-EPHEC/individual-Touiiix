@@ -20,6 +20,8 @@
   },
   "dependencies": {
     "express": "^5.2.1",
-    "git": "^0.1.5"
+    "git": "^0.1.5",
+    "sequelize": "^6.37.7",
+    "sqlite3": "^5.1.7"
   }
 }
