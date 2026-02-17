@@ -14,7 +14,7 @@ async function testDB() {
         await sequelize.authenticate();
         console.log('Connection à la DB reussie.');
 
-        await sequelize.sync({force : true});
+        await sequelize.sync();
         console.log('modèles synchronisés avec la DB')
 
         app.listen(port, () => {
@@ -30,6 +30,7 @@ const app = express();
 const port = 3000;
 
 app.use(express.json());    
+app.use('/api/users', userRouter);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
