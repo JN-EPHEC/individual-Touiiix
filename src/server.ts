@@ -31,6 +31,7 @@ const port = 3000;
 
 app.use(express.json());    
 app.use('/api/users', userRouter);
+app.use(express.static('public'));
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
