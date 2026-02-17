@@ -10,11 +10,26 @@ async function chargerUser() {
     users.forEach(user => {
         userList.innerHTML += `
             <li class="list-group-item">
-                ${user.Prenom} ${user.Nom}
+                ${user.Prenom} ${user.Nom} <button class="btn btn-danger btn-delete" data-id="${user.id}">X</button>
             </li>
         `;
     });
 }
+
+userList.addEventListener('click', async (event) => {
+    if (event.target.classList.contains('btn-delete')) {
+        const id = event.target.getAttribute('data-id');
+
+        if(!confirm("T'es sur ???")) return;
+        try {
+            await fetch(`/api/users/${id}`, { method: 'DELETE' });
+            chargerUser();
+        } catch (error) {
+            console.error("Probleme", error);
+        }
+    }
+})
+
 
 userForm.addEventListener('submit', async (event) => {
     event.preventDefault();
