@@ -2,6 +2,8 @@ import express, {Request, Response} from 'express';
 import userRouter from "./routes/userRoutes.js";
 import sequelize from "./config/database.js";
 import "./models/User";
+import {requestLogger} from "./middlewares/logger";
+import { request } from 'node:http';
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
@@ -29,7 +31,9 @@ testDB();
 const app = express();
 const port = 3000;
 
+
 app.use(express.json());    
+app.use(requestLogger);
 app.use('/api/users', userRouter);
 app.use(express.static('public'));
 
