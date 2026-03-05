@@ -4,6 +4,8 @@ import sequelize from "./config/database.js";
 import "./models/User";
 import {requestLogger} from "./middlewares/logger";
 import { request } from 'node:http';
+import {errorHandler} from "./middlewares/errorHandler";
+
 function greet(name: string): string {
     return `Hello, ${name}!`;
 }
@@ -36,6 +38,7 @@ app.use(express.json());
 app.use(requestLogger);
 app.use('/api/users', userRouter);
 app.use(express.static('public'));
+app.use(errorHandler);
 
 app.get('/', (req: Request, res: Response) => {
     res.send('Bienvenue sur mon serveur API')
