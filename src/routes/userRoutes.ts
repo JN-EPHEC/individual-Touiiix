@@ -34,7 +34,9 @@ export default router;*/
 *    tags: [Users]
 *    responses:
 *      200:
-*        description: Succès
+*        description: Liste utilisateur récupérée avec succès
+*      500:
+*        description: Erreur serveur
 */
 router.get("/", userController.getAllUsers);
 
@@ -52,6 +54,7 @@ router.get("/", userController.getAllUsers);
  *             type: object
  *             required:
  *               - Prenom
+ *               - Nom
  *             properties:
  *               Prenom:
  *                 type: string
