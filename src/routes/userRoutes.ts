@@ -1,6 +1,7 @@
 import express, {Router, Request, Response} from 'express';
 import User from '../models/User';
 import * as userController from "../controllers/userController";
+import { checkIdParam } from "../middlewares/checkIdParam";
 const router = Router();
 
 /*router.get('/', async (req: Request, res: Response) => {
@@ -90,6 +91,6 @@ router.post("/", userController.createUser);
 *      500:
 *        description: Erreur serveur
 */
-router.delete("/:id", userController.deleteUser);
+router.delete("/:id", checkIdParam , userController.deleteUser);
 
 export default router;
