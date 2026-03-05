@@ -25,8 +25,68 @@ router.delete('/:id', async (req: Request, res: Response) => {
 })
 export default router;*/
 
+
+/**
+* @swagger
+* /api/users:
+*  get:
+*    summary: Récupère la liste des utilisateurs
+*    tags: [Users]
+*    responses:
+*      200:
+*        description: Succès
+*/
 router.get("/", userController.getAllUsers);
+
+/**
+ * @swagger
+ * /api/users:
+ *   post:
+ *     summary: Crée un nouvel utilisateur
+ *     tags: [Users]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required:
+ *               - Prenom
+ *             properties:
+ *               Prenom:
+ *                 type: string
+ *               Nom:
+ *                 type: string
+ *     responses:
+ *       201:
+ *         description: Utilisateur créé avec succès
+ *       400:
+ *         description: Requête invalide
+ *       500:
+ *         description: Erreur serveur
+ */
 router.post("/", userController.createUser);
+
+/**
+* @swagger
+* /api/users/{:id}:
+*  delete:
+*    summary: supprime l'utilisateur demandé
+*    tags: [Users]
+*    parameters:
+*      - in: path
+*        name: id
+*        required: true
+*        schema:
+*          type: integer
+*    responses:
+*      200:
+*        description: Succès
+*      404:
+*        description: Utilisateur non trouvé
+*      500:
+*        description: Erreur serveur
+*/
 router.delete("/:id", userController.deleteUser);
 
 export default router;
