@@ -1,12 +1,12 @@
 import express, {Request, Response} from 'express';
 import userRouter from "./routes/userRoutes.js";
 import sequelize from "./config/database.js";
-import "./models/User";
-import {requestLogger} from "./middlewares/logger";
+import "./models/User.js";
+import {requestLogger} from "./middlewares/logger.js";
 import { request } from 'node:http';
-import {errorHandler} from "./middlewares/errorHandler";
+import {errorHandler} from "./middlewares/errorHandler.js";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./config/swagger";
+import { swaggerSpec } from "./config/swagger.js";
 import cors from "cors";
 
 function greet(name: string): string {
