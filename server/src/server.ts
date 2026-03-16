@@ -1,12 +1,12 @@
 import express, {Request, Response} from 'express';
-import userRouter from "./routes/userRoutes.js";
+import userRouter from "./routes/userRoutes";
 import sequelize from "./config/database.js";
 import "./models/User.js";
-import {requestLogger} from "./middlewares/logger.js";
+import {requestLogger} from "./middlewares/logger";
 import { request } from 'node:http';
-import {errorHandler} from "./middlewares/errorHandler.js";
+import {errorHandler} from "./middlewares/errorHandler";
 import swaggerUi from "swagger-ui-express";
-import { swaggerSpec } from "./config/swagger.js";
+import { swaggerSpec } from "./config/swagger";
 import cors from "cors";
 
 function greet(name: string): string {
@@ -41,7 +41,7 @@ app.use(express.json());
 app.use(requestLogger);
 app.use(cors());
 app.use('/api/users', userRouter);
-app.use(express.static('public'));
+app.use(express.static('../public'));
 app.use(errorHandler);
 
 app.get('/', (req: Request, res: Response) => {

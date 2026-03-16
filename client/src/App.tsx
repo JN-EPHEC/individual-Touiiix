@@ -3,8 +3,8 @@ import { useEffect, useState } from "react";
 // Sera couvert plus en profondeur en TH
 interface User {
   id: number;
-  prenom: string;
-  nom: string;
+  Prenom: string;
+  Nom: string;
 }
 function App() {
   const [data, setData] = useState<User[]>([]);
@@ -31,7 +31,7 @@ function App() {
       await fetch("http://localhost:3000/api/users", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nom: nouveauNom, prenom: nouveauPrenom })
+        body: JSON.stringify({ Nom: nouveauNom, Prenom: nouveauPrenom })
       });
       setNouveauNom("");
       setNouveauPrenom("");
@@ -89,7 +89,7 @@ return (
       <ul className="list-group mb-4 shadow-sm">
         {data.map((user) => (
           <li key={user.id} className="list-group-item d-flex justify-content-between align-items-center">
-            <span><strong>{user.prenom}</strong> {user.nom}</span>
+            <span><strong>{user.Prenom}</strong> {user.Nom}</span>
             <button
               className="btn btn-danger btn-sm"
               onClick={() => deleteUser(user.id)}
