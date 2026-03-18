@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1773858933979" clover="3.2.0">
-  <project timestamp="1773858933979" name="All files">
+<coverage generated="1773864887734" clover="3.2.0">
+  <project timestamp="1773864887734" name="All files">
     <metrics statements="46" coveredstatements="46" conditionals="49" coveredconditionals="49" methods="3" coveredmethods="3" elements="98" coveredelements="98" complexity="0" loc="46" ncloc="46" packages="1" files="3" classes="3"/>
     <file name="password.ts" path="C:\Users\leole\Documents\GitHub\individual-Touiiix\server\src\utils\password.ts">
       <metrics statements="16" coveredstatements="16" conditionals="25" coveredconditionals="25" methods="1" coveredmethods="1"/>

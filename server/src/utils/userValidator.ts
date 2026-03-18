@@ -1,4 +1,4 @@
-export const validateUserREgistration = (age: number, role: string, email: string) =>{
+export const validateUserRegistration = (age: number, role: string, email: string) =>{
     if(age > 120) {
         throw new Error("Age invalide");
     };
