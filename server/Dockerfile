@@ -5,6 +5,7 @@ RUN npm install
 COPY . .
 # On compile le TypeScript en JavaScript
 RUN npm run build
+RUN ls -la dist/
 # Très important !
 ENV PORT=3000 
 # Très important !
