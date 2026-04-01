@@ -3,3 +3,4 @@ node_modules/
 .sqlite
 .db
 .log
+server/config/config.json

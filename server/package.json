@@ -6,6 +6,8 @@
   "scripts": {
     "test1": "echo \"Error: no test specified\" && exit 1",
     "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc",
     "test": "jest --verbose",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage --verbose"
@@ -13,7 +15,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "module",
+  "type": "commonjs",
   "devDependencies": {
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",

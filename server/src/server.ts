@@ -1,13 +1,14 @@
-import express, {Request, Response} from 'express';
+import * as express from 'express';
+import {Request, Response} from 'express';
 import userRouter from "./routes/userRoutes";
 import sequelize from "./config/database.js";
 import "./models/User.js";
 import {requestLogger} from "./middlewares/logger";
 import { request } from 'node:http';
 import {errorHandler} from "./middlewares/errorHandler";
-import swaggerUi from "swagger-ui-express";
+import * as swaggerUi from "swagger-ui-express";
 import { swaggerSpec } from "./config/swagger";
-import cors from "cors";
+import * as cors from "cors";
 
 function greet(name: string): string {
     return `Hello, ${name}!`;

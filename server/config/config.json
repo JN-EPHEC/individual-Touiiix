@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "postgres",
+    "username": "postgres.akvehtbbucyxtkbbzwxj",
     "password": "RzwihHwJBUZARSnc",
     "database": "postgres",
-    "host": "db.akvehtbbucyxtkbbzwxj.supabase.co",
+    "host": "aws-1-eu-west-3.pooler.supabase.com",
     "dialect": "postgres",
     "dialectOptions": {
       "ssl": {
